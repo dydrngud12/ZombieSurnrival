@@ -359,6 +359,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VRMShaders.GLTF.IO.Runtime.ref.dll"
 "Assets/01.Scripts/GameManager.cs"
 "Assets/01.Scripts/Playerlnput.cs"
+"Assets/01.Scripts/PlayerMovement.cs"
 "Assets/TaichiCharacterPack/TwinViewer/Scripts/Twin2ndSceneScript.cs"
 "Assets/TaichiCharacterPack/TwinViewer/Scripts/TwinSceneScript.cs"
 "Assets/TaichiCharacterPack/TwinViewer/Scripts/TwinViewScript.cs"

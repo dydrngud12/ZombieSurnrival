@@ -8,10 +8,10 @@ using UnityEngine;
 
 public class Playerlnput : MonoBehaviour
 {
-    public string moveAxisMame = "Vertcal"; // 앞뒤 움직임을 위한 입력축 이름
+    public string moveAxisName = "Vertical"; // 앞뒤 움직임을 위한 입력축 이름
     public string rotateAxisName = "Horizontal"; // 좌우 회전을 위한 입력축 이름
     public string fireButtonName = "Fire1"; // 발사를 위한 입력 버튼 이름
-    public string reloadButtonName = " Reload"; // 재장전을 위한 입력 버튼 이름
+    public string reloadButtonName = "Reload"; // 재장전을 위한 입력 버튼 이름
 
     // 값 할당은 내부세어만 가능
     public float move { get; private set; }// 감지된 움직임 입력값
@@ -40,7 +40,7 @@ public class Playerlnput : MonoBehaviour
         }
 
         // move에 관한 입력 감지
-        move = Input.GetAxis(moveAxisMame);
+        move = Input.GetAxis(moveAxisName);
         // rotate에 관한 입력 감지
         rotate = Input.GetAxis(rotateAxisName);
         // fire에 관한 입력 감지
