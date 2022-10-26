@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunData : MonoBehaviour
+[CreateAssetMenu(menuName = "Scriptable/GunData", fileName = "GunData")]
+public class GunData : ScriptableObject
 {
     public AudioClip audioClip; // 발사 소리
     public AudioClip reloadClip; // 재장전 소리
@@ -14,6 +15,7 @@ public class GunData : MonoBehaviour
 
     public float tomeBetFire = 0.12f; // 탄알 발사 간격
     public float reloadTime = 1.8f; // 재장전 소요 시간
+
     // Start is called before the first frame update
     void Start()
     {
