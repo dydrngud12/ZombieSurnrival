@@ -15,6 +15,7 @@ public class GunData : ScriptableObject
 
     public float tomeBetFire = 0.12f; // 탄알 발사 간격
     public float reloadTime = 1.8f; // 재장전 소요 시간
+    internal int timeBetFire;
 
     // Start is called before the first frame update
     void Start()
