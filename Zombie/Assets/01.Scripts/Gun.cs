@@ -63,7 +63,7 @@ public class Gun : MonoBehaviour
     {
         // 현재 상태가 발사 가능한 상태
         // && 마지막 총발사 시점에서 timeBetFire이상의 시간이 지남
-        if (state == State.Ready && Time.time >= lastFireTime + gunData.timeBefire)
+        if (state == State.Ready && Time.time >= lastFireTime + gunData.timeBetFire)
         {
             // 마지막 총 발사 시점 갱신
             lastFireTime = Time.time;
@@ -89,10 +89,10 @@ public class Gun : MonoBehaviour
             IDamageable targer = hit.collider.GetComponent<IDamageable>();
 
             // 상대방으로부터 IDamageable 오브젝트 가져오기 시도
-            if (target != null)
+            if (targer != null)
             {
                 // 상대방의 OnDamage 함수를 실행시켜 상대방에 대미지 주기
-                transform.OnDamage(gunData.damage, hit.point, hit.normal);
+                targer.OnDamage(gunData.damage, hit.point, hit.normal);
             }
             // 레이가 충돌한 위치 저장
             hitposition = hit.point;
@@ -160,7 +160,7 @@ public class Gun : MonoBehaviour
     private IEnumerator ReloadRoutine()
     {
         // 현재 상태를 재장전 중 상태로 전환
-        state = state.Reloding;
+        state = State.Reloading;
         // 재장전 소리 재생
         gunAudioPlayer.PlayOneShot(gunData.reloadClip);
 
@@ -177,10 +177,11 @@ public class Gun : MonoBehaviour
             ammoTofill = ammoRemain;
         }
 
+
         // 탄창을 채움
-        magAmmo += ammoToFill;
-        // 남은 탄알에서 탄창에 채운만큼 탄알을 뻄
-        ammoRemain -= ammoToFill;
+        magAmmo += ammoTofill;
+        // 남은 탄알에서 탄창에 채운만큼 탄알을 뺌
+        ammoRemain -= ammoTofill;
         // 총의 현재 상태를 발사 준비된 상태로 변경
         state = State.Ready;
     }
